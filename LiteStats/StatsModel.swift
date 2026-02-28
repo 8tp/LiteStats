@@ -406,11 +406,14 @@ final class StatsModel {
         guard kr == KERN_SUCCESS else { return }
 
         let pageSize = UInt64(vm_kernel_page_size)
-        let active     = UInt64(vmStats.active_count)
+        let internal_  = UInt64(vmStats.internal_page_count)
+        let purgeable  = UInt64(vmStats.purgeable_count)
         let wired      = UInt64(vmStats.wire_count)
         let compressor = UInt64(vmStats.compressor_page_count)
 
-        ramUsed  = (active + wired + compressor) * pageSize
+        // Match Activity Monitor: app memory (internal - purgeable) + wired + compressor
+        let appMemory = internal_ > purgeable ? internal_ - purgeable : 0
+        ramUsed  = (appMemory + wired + compressor) * pageSize
         ramTotal = ProcessInfo.processInfo.physicalMemory
         ramPercent = ramTotal > 0 ? (Double(ramUsed) / Double(ramTotal)) * 100 : 0
     }

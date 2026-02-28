@@ -49,6 +49,14 @@ struct ContentView: View {
             footer
         }
         .frame(width: 340)
+        .onAppear {
+            stats.panelVisible = true
+            stats.fullRefresh()
+        }
+        .onDisappear {
+            stats.panelVisible = false
+            stats.topProcesses = []
+        }
     }
 
     // MARK: - Header

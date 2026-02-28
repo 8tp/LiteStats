@@ -31,7 +31,7 @@ The app uses a clean three-layer separation:
 |------|------|
 | `LiteStatsApp.swift` | `@main` entry point; creates `MenuBarExtra` scene; passes `StatsModel` to views |
 | `StatsModel.swift` | `@Observable` polling engine; all system metric collection logic |
-| `ContentView.swift` | Menu bar popover UI (320pt fixed width); `StatRow` and `ProgressBar` components |
+| `ContentView.swift` | Menu bar panel UI (340pt fixed width); `StatRow` and `ProgressBar` components |
 | `PreferencesView.swift` | Settings sheet (interval slider, device info display) |
 | `PreferencesWindowController.swift` | Singleton `NSWindow` wrapper for preferences; prevents duplicate windows |
 
@@ -48,4 +48,4 @@ The app uses a clean three-layer separation:
 
 - **Sandboxing is disabled** (`com.apple.security.app-sandbox = false` in `Info.plist`) — required for IOKit battery access. Do not enable the sandbox without adding appropriate entitlements or a helper process.
 - **No Dock icon**: `LSUIElement = YES` in `Info.plist` hides the app from Dock and App Switcher.
-- The preferences window uses a standalone `NSWindow` (not a SwiftUI `Sheet` or `WindowGroup`) to avoid stealing focus from the menu bar popover.
+- The preferences window uses a standalone `NSWindow` (not a SwiftUI `Sheet` or `WindowGroup`) to avoid stealing focus from the menu bar panel.

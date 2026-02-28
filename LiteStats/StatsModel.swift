@@ -101,11 +101,6 @@ final class StatsModel {
     /// Set to true when the MenuBarExtra panel is visible.
     var panelVisible: Bool = false
 
-    // MARK: - Status bar refresh callback
-
-    /// Called after every refresh so AppDelegate can update the status bar title.
-    @ObservationIgnored var onRefresh: (() -> Void)?
-
     // MARK: - Health summary
 
     var healthSummary: String = "All systems nominal"
@@ -195,10 +190,7 @@ final class StatsModel {
         updateTrends()
 
         // When the panel is closed, skip expensive work (battery, storage, processes, etc.)
-        guard panelVisible else {
-            onRefresh?()
-            return
-        }
+        guard panelVisible else { return }
 
         updateUptime()
         updateThermalState()
@@ -208,7 +200,6 @@ final class StatsModel {
         updateNetwork()
         if showProcesses { updateTopProcesses() }
         updateHealthSummary()
-        onRefresh?()
     }
 
     /// Full refresh — called when the panel opens to immediately populate all fields.
@@ -224,7 +215,6 @@ final class StatsModel {
         if showProcesses { updateTopProcesses() }
         updateTrends()
         updateHealthSummary()
-        onRefresh?()
     }
 
     // MARK: - Uptime

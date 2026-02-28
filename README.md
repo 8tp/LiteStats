@@ -78,7 +78,7 @@ xcodebuild -project LiteStats.xcodeproj -scheme LiteStats -configuration Debug b
 LiteStats/
 ├── LiteStatsApp.swift                — @main entry point, MenuBarExtra scene
 ├── StatsModel.swift                  — @Observable polling engine (all metrics)
-├── ContentView.swift                 — Menu bar popover UI and components
+├── ContentView.swift                 — Menu bar panel UI and components
 ├── PreferencesView.swift             — Settings panel (interval, text size, device info)
 ├── PreferencesWindowController.swift — NSWindow wrapper for preferences
 └── Assets.xcassets/                  — App icon and accent color

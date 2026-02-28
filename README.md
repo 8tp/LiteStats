@@ -7,7 +7,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/macOS-14.0%2B-blue?logo=apple" alt="macOS 14.0+">
   <img src="https://img.shields.io/badge/Swift-5.9-orange?logo=swift" alt="Swift 5.9">
-  <img src="https://img.shields.io/github/license/huntershome/LiteStats" alt="MIT License">
+  <img src="https://img.shields.io/github/license/8tp/LiteStats" alt="MIT License">
   <img src="https://img.shields.io/badge/dependencies-zero-brightgreen" alt="Zero Dependencies">
 </p>
 
@@ -56,7 +56,7 @@ LiteStats lives in your menu bar and gives you an instant overview of your Mac's
 ### Build from source
 
 ```sh
-git clone https://github.com/huntershome/LiteStats.git
+git clone https://github.com/8tp/LiteStats.git
 cd LiteStats
 open LiteStats.xcodeproj
 ```
